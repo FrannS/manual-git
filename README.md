@@ -320,6 +320,6 @@ git push origin main
 ## 🏁 Conclusión
 
 Este manual reúne los **comandos fundamentales de Git** y explica su uso dentro de un flujo de trabajo real con **GitHub**.
-Gracias a este ejercicio, comprendí mejor cómo controlar versiones, trabajar con ramas y mantener un historial limpio y organizado.
+Gracias a este ejercicio, comprendi mejor cómo controlar versiones, trabajar con ramas y mantener un historial limpio y organizado.
 
 ---
