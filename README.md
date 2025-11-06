@@ -1,7 +1,7 @@
 # 🧠 Manual de Comandos de Git y GitHub
 
-**Autor:** [Tu nombre]
-**Fecha:** Noviembre de 2025
+**Autor:** Francisco Javier Aguilar Barrera
+**Fecha:** 5 de Noviembre de 2025
 
 ---
 
