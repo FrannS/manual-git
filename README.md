@@ -1,154 +1,325 @@
-📘 Introducción
+# 🧠 Manual de Comandos de Git y GitHub
 
-Git es un sistema de control de versiones que permite registrar los cambios en los archivos de un proyecto y colaborar con otras personas.
-A continuación, detallo los comandos básicos que usé y su propósito.
+**Autor:** [Tu nombre]
+**Fecha:** Noviembre de 2025
 
-🧭 1. git init
+---
 
-Inicializa un nuevo repositorio local en la carpeta actual.
+## 📘 Introducción
 
-Uso:
+Este documento es un **manual explicativo sobre los comandos básicos de Git**, elaborado como parte de la tarea *“Manual de comandos Git en GitHub”*.
+
+Mi objetivo es demostrar mi comprensión del funcionamiento de Git mediante explicaciones claras, ejemplos prácticos y una estructura ordenada.
+
+Git es una herramienta de **control de versiones distribuido** que permite registrar cambios, colaborar con otros desarrolladores y mantener el historial completo de un proyecto.
+GitHub, por su parte, es una plataforma en línea que aloja repositorios y facilita el trabajo colaborativo.
+
+---
+
+## ⚙️ Preparación inicial
+
+Antes de empezar a usar los comandos, realicé la configuración básica de Git en mi computadora.
+
+```bash
+git config --global user.name "Mi Nombre"
+git config --global user.email "mi-correo@ejemplo.com"
+```
+
+Esto permite que cada commit quede registrado con mi nombre y correo.
+
+Verifiqué la configuración con:
+
+```bash
+git config --list
+```
+
+---
+
+## 🏗️ Flujo general de trabajo en Git
+
+El ciclo básico de Git consiste en estos pasos:
+
+1. **Inicializar** o **clonar** un repositorio.
+2. **Agregar cambios** al área de preparación.
+3. **Confirmar (commit)** los cambios.
+4. **Enviar (push)** al repositorio remoto en GitHub.
+5. **Actualizar (pull)** para obtener los cambios más recientes.
+6. **Fusionar (merge)** ramas cuando sea necesario.
+
+---
+
+## 🔰 Comandos principales de Git
+
+### 1️⃣ `git init` — Inicializar un repositorio
+
+Crea un repositorio vacío en la carpeta actual.
+
+**Uso:**
+
+```bash
 git init
+```
 
-Ejemplo:
+**Ejemplo:**
+
+```bash
 mkdir manual-git
 cd manual-git
 git init
+```
 
-Este comando crea una carpeta oculta llamada .git, donde se almacenará toda la información del repositorio.
+👉 Este comando genera una carpeta oculta `.git` que almacena toda la información del proyecto.
 
-📥 2. git clone
+---
 
-Clona un repositorio remoto (por ejemplo, desde GitHub) a tu computadora.
+### 2️⃣ `git clone` — Clonar un repositorio remoto
 
-Uso:
+Descarga un repositorio existente de GitHub a tu computadora.
+
+**Uso:**
+
+```bash
 git clone <url-del-repositorio>
+```
 
-Ejemplo:
+**Ejemplo:**
+
+```bash
 git clone https://github.com/mi-usuario/manual-git.git
+```
 
-Esto descarga todos los archivos y el historial del proyecto.
+👉 Esto crea una copia completa del proyecto, incluyendo historial y ramas.
 
-🗂️ 3. git add
+---
 
-Agrega archivos al área de preparación antes de hacer un commit.
+### 3️⃣ `git add` — Añadir archivos al área de preparación
 
-Uso:
+Indica qué archivos serán incluidos en el próximo commit.
+
+**Uso:**
+
+```bash
 git add <archivo>
+```
+
 O para agregar todos los archivos modificados:
+
+```bash
 git add .
+```
 
-Ejemplo:
+**Ejemplo:**
+
+```bash
 git add README.md
+```
 
-💾 4. git commit
+💡 *El área de preparación (staging area) es donde selecciono los archivos que quiero guardar definitivamente.*
 
-Guarda los cambios preparados en el historial del repositorio con un mensaje descriptivo.
+---
 
-Uso:
-git commit -m "Mensaje del commit"
+### 4️⃣ `git commit` — Guardar los cambios en el historial
 
-Ejemplo:
+Crea un nuevo punto en el historial del repositorio con los cambios preparados.
+
+**Uso:**
+
+```bash
+git commit -m "Mensaje descriptivo"
+```
+
+**Ejemplo:**
+
+```bash
 git commit -m "Agrega manual de comandos básicos de Git"
+```
 
-Cada commit representa una versión del proyecto que puedo recuperar más adelante.
+📌 *Cada commit representa una versión específica del proyecto.
+Es recomendable usar mensajes claros y breves.*
 
-📜 5. git log
+---
 
-Muestra el historial de commits del repositorio.
+### 5️⃣ `git log` — Ver historial de commits
 
-Uso:
+Muestra una lista de los commits realizados, junto con su autor, fecha e identificador (hash).
+
+**Uso:**
+
+```bash
 git log
+```
 
-Ejemplo:
+**Ejemplo:**
+
+```bash
 git log --oneline
+```
 
-Muestra de forma resumida los commits realizados.
+📖 *El historial me permite revisar los cambios realizados y regresar a versiones anteriores si es necesario.*
 
-🔄 6. git checkout
+---
 
-Permite cambiar entre ramas o versiones específicas del proyecto.
+### 6️⃣ `git checkout` — Cambiar de rama o versión
 
-Uso:
+Permite moverse entre ramas o versiones específicas de un commit.
+
+**Uso:**
+
+```bash
 git checkout <nombre-de-rama>
-O para revisar un commit antiguo:
+```
+
+O para ver un commit anterior:
+
+```bash
 git checkout <id-del-commit>
+```
 
-Ejemplo:
+**Ejemplo:**
+
+```bash
 git checkout main
+```
 
-🌿 7. git branch
+🚀 *Es muy útil para trabajar en diferentes versiones del proyecto sin afectar la rama principal.*
 
-Sirve para crear, listar o eliminar ramas.
+---
 
-Usos comunes:
-git branch             # Lista ramas
+### 7️⃣ `git branch` — Crear o listar ramas
+
+Las ramas permiten desarrollar nuevas funcionalidades sin alterar el código principal.
+
+**Usos más comunes:**
+
+```bash
+git branch             # Lista ramas locales
 git branch <nombre>    # Crea una nueva rama
 git branch -d <nombre> # Elimina una rama
+```
 
-Ejemplo:
+**Ejemplo:**
+
+```bash
 git branch desarrollo
+git checkout desarrollo
+```
 
-🚀 8. git push
-Envía los commits locales al repositorio remoto (por ejemplo, en GitHub).
+🌿 *Cada rama es como una línea paralela de trabajo.
+Al final puedo fusionarla con la rama principal (`main`) mediante `git merge`.*
 
-Uso:
+---
+
+### 8️⃣ `git push` — Enviar cambios al repositorio remoto
+
+Sube los commits locales a GitHub.
+
+**Uso:**
+
+```bash
 git push origin <nombre-de-rama>
+```
 
-Ejemplo:
+**Ejemplo:**
+
+```bash
 git push origin main
+```
 
-⬇️ 9. git pull
+💡 *El primer push puede requerir autenticación con GitHub (token o SSH).*
 
-Descarga y fusiona los cambios desde el repositorio remoto al local.
+---
 
-Uso:
+### 9️⃣ `git pull` — Descargar y fusionar cambios del remoto
+
+Actualiza el repositorio local con los cambios del remoto.
+
+**Uso:**
+
+```bash
 git pull origin <nombre-de-rama>
+```
 
-Ejemplo:
+**Ejemplo:**
+
+```bash
 git pull origin main
+```
 
-🔗 10. git merge
+🔄 *Combina “fetch” (descargar) y “merge” (fusionar) en un solo paso.*
 
-Fusiona los cambios de una rama con otra.
+---
 
-Uso:
+### 🔟 `git merge` — Fusionar ramas
+
+Combina los cambios de una rama con otra.
+
+**Uso:**
+
+```bash
 git merge <rama-a-fusionar>
+```
 
-Ejemplo:
+**Ejemplo:**
+
+```bash
 git merge desarrollo
+```
 
-Este comando combina los cambios de la rama desarrollo con la rama actual (por ejemplo, main).
+📌 *Después de fusionar, puedo eliminar la rama que ya no necesito:*
 
-🧩 Ejemplo práctico del flujo de trabajo
+```bash
+git branch -d desarrollo
+```
 
-# Crear o clonar el repositorio
+---
+
+## 🧩 Ejemplo práctico del flujo completo
+
+A continuación muestro un flujo real que seguí para este proyecto:
+
+```bash
+# 1. Inicializo el repositorio local
 git init
+
+# 2. Agrego el repositorio remoto
 git remote add origin https://github.com/mi-usuario/manual-git.git
 
-# Agregar y confirmar cambios
-git add .
-git commit -m "Primer commit del proyecto"
+# 3. Creo y agrego el README
+git add README.md
+git commit -m "Crea README con manual de comandos básicos"
 
-# Subir los cambios
+# 4. Envío los cambios a GitHub
 git branch -M main
 git push -u origin main
 
-# Crear una rama de desarrollo
+# 5. Creo una nueva rama para mejoras
 git branch desarrollo
 git checkout desarrollo
-
-# Hacer cambios, confirmarlos y fusionar
+# (realizo cambios)
 git add .
-git commit -m "Actualiza README con explicaciones"
+git commit -m "Agrega secciones adicionales al manual"
+
+# 6. Fusiono los cambios en la rama principal
 git checkout main
 git merge desarrollo
 git push origin main
+```
 
-🏁 Conclusión
+---
 
-Con estos comandos, puedo controlar versiones, colaborar con otros desarrolladores y mantener un historial claro de mi proyecto.
-Este manual me permitió reforzar mi comprensión del funcionamiento de Git y GitHub, aplicando en la práctica cada uno de los comandos vistos en clase.
+## 💡 Buenas prácticas que aprendí
 
-✍️ Autor: Francisco Javier Aguilar Barrera
-📅 Fecha de creación: 6 de noviembre de 2025
+✔️ Usar mensajes de commit claros y en tiempo presente.
+✔️ Hacer `git pull` antes de empezar a trabajar cada día.
+✔️ Crear ramas para cada nueva funcionalidad o corrección.
+✔️ Revisar `git status` y `git log` frecuentemente.
+✔️ No subir archivos innecesarios (usar `.gitignore` cuando sea necesario).
+
+---
+
+## 🏁 Conclusión
+
+Este manual reúne los **comandos fundamentales de Git** y explica su uso dentro de un flujo de trabajo real con **GitHub**.
+Gracias a este ejercicio, comprendí mejor cómo controlar versiones, trabajar con ramas y mantener un historial limpio y organizado.
+
+---
